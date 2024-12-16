@@ -1,9 +1,10 @@
 name: Convert CSV to JSON and Publish to GitHub Pages
 
 on:
+  workflow_dispatch:
   push:
     paths:
-      - data/*.csv
+      - data/*.csv 
 
 jobs:
   build:
