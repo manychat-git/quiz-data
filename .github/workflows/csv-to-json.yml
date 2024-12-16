@@ -1,4 +1,4 @@
-name: Convert CSV to JSON
+name: Convert CSV to JSON and Publish to GitHub Pages
 
 on:
   push:
@@ -22,16 +22,16 @@ jobs:
 
       - name: Convert Cards CSV to JSON
         run: |
-          csvtojson "data/Tarot Quiz - Cards.csv" > data/cards.json
+          csvtojson "data/Tarot Quiz - Cards.csv" > cards.json
 
       - name: Convert Questions CSV to JSON
         run: |
-          csvtojson "data/Tarot Quiz - Questions.csv" > data/questions.json
+          csvtojson "data/Tarot Quiz - Questions.csv" > questions.json
 
       - name: Commit and Push JSON
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add data/cards.json data/questions.json
-          git commit -m "Auto-generate JSON from CSV"
+          git add cards.json questions.json
+          git commit -m "Publish JSON for GitHub Pages"
           git push
